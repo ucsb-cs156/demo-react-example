@@ -1,0 +1,3 @@
+This directory is for fixtures; data that serves as examples for testing.
+
+Often (though not always) that data is examples of what a backend API might return to us.
