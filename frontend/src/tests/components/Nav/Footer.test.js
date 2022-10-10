@@ -6,7 +6,7 @@ describe("Footer tests", () => {
         const { getByText } = render(
             <Footer />
         );
-        await waitFor(() => expect(getByText(/This is a sample webapp using React with a Spring Boot backend./)).toBeInTheDocument());
+        await waitFor(() => expect(getByText(/This is a sample webapp using React with GitHub Pages./)).toBeInTheDocument());
     });
 });
 
