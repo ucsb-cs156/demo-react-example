@@ -1,50 +1,53 @@
-# demo-spring-react-example-v2: dsre-v2
+# demo-react-example
+
+This repo is a cousin of demo-spring-react-example
+
+It was produced by starting with demo-spring-react-example, removing all of the
+Spring Boot backend code, leaving only a React app, and then adapting that
+React app so that it would run on GitHub pages, using the techniques
+described in this repo:
+
+* <https://github.com/gitname/react-gh-pages>
+
+A pure React app has no backend, so it can only compute using what the user types in
+or uploads, and storage is limited.  
+
+One kind of storage it can use is "local storage", which is a key/value store that is
+located on the client machine, and associated with a specific browser (it is not
+shared across browsers.)
+
+# Storybook
 
 Storybook is here:
-* Production: <https://ucsb-cs156-s22.github.io/demo-spring-react-example-docs/>
-* QA:  <https://ucsb-cs156-s22.github.io/demo-spring-react-example-docs-qa/>
+* Production: <https://ucsb-cs156.github.io/demo-react-example-docs/>
+* QA:  <https://ucsb-cs156.github.io/demo-react-example-docs-qa/>
 
 The GitHub actions script to deploy the Storybook to QA requires some configuration; see [docs/github-actions.md](docs/github-actions.md) for details.
 
 If these repos are not yet setup, see the setup steps in [`docs/storybook.md`](docs/storybook.md).
 
-# Setup before running application
-
-Before running the application for the first time,
-you need to do the steps documented in [`docs/oauth.md`](docs/oauth.md).
-
-Otherwise, when you try to login for the first time, you 
-will likely see an error such as:
-
-<img src="https://user-images.githubusercontent.com/1119017/149858436-c9baa238-a4f7-4c52-b995-0ed8bee97487.png" alt="Authorization Error; Error 401: invalid_client; The OAuth client was not found." width="400"/>
 
 # Getting Started on localhost
 
-* Open *two separate terminal windows*  
-* In the first window, start up the backend with:
-  ``` 
-  mvn spring-boot:run
-  ```
-* In the second window:
-  ```
-  cd frontend
-  npm install  # only on first run or when dependencies change
-  npm start
-  ```
-
-Then, the app should be available on <http://localhost:8080>
-
-If it doesn't work at first, e.g. you have a blank page on  <http://localhost:8080>, give it a minute and a few page refreshes.  Sometimes it takes a moment for everything to settle in.
-
-If you see the following on localhost, make sure that you also have the frontend code running in a separate window.
-
 ```
-Failed to connect to the frontend server... On Heroku, be sure that PRODUCTION is defined.  On localhost, open a second terminal window, cd into frontend and type: npm install; npm start";
+cd frontend
+npm install  # only on first run or when dependencies change
+npm start
 ```
 
-# Getting Started on Heroku
+Then, the app should be available on <http://localhost:3000>
 
-On Heroku, you'll need to set the following configuration variable:
+
+# Getting Started on GitHub Pages
+
+Edit the `frontend/package.json` file to change this entry:
+
+```
+  "homepage": "https://ucsb-cs156.github.io/demo-react-example",
+```
+
+To one that matches the GitHub organization or user for your repo, 
+for example 
 
 * Using the Heroku CLI:
   ```
