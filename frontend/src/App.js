@@ -11,6 +11,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/home" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -46,29 +46,23 @@ Edit the `frontend/package.json` file to change this entry:
   "homepage": "https://ucsb-cs156.github.io/demo-react-example",
 ```
 
-To one that matches the GitHub organization or user for your repo, 
-for example 
+The new value should be composed as follows:
 
-* Using the Heroku CLI:
-  ```
-  heroku config:set PRODUCTION=true --app <heroku app name>
-  ```
-* Or set it on the Heroku Dashboard:
-  ![image](https://user-images.githubusercontent.com/1119017/149855768-7b56164a-98f7-4357-b877-da34b7bd9ea4.png)
+* Start with literally `https://`
+* Next, the GitHub organization in which your repo is located, e.g. `ucsb-cs156-s23` (this will change from quarter to quarter)
+* Then, literally `.github.io/`
+* Finally, the name of your repo, e.g. `jspa00-cgaucho`
 
-You'll also need to follow the OAuth set up instructions here: [`docs/oauth.md`](docs/oauth.md).
-
-If you get the following message on Heroku, it probably means that you failed to setup the `PRODUCTION` environment variable.
+Example:
 
 ```
-Failed to connect to the frontend server... On Heroku, be sure that PRODUCTION is defined.  On localhost, open a second terminal window, cd into frontend and type: npm install; npm start";
+  "homepage": "https://ucsb-cs156-s23.github.io/jspa00-cgaucho",
 ```
 
-# Accessing swagger
+Then, to deploy, run: 
 
-To access the swagger API endpoints, use:
-
-* <http://localhost:8080/swagger-ui/index.html>
+```
+```
 
 
 # To run React Storybook
@@ -80,15 +74,3 @@ To access the swagger API endpoints, use:
 
 * For documentation on React Storybook, see: https://storybook.js.org/
 
-# SQL Database access
-
-On localhost:
-* The SQL database is an H2 database and the data is stored in a file under `target`
-* Each time you do `mvn clean` the database is completely rebuilt from scratch
-* You can access the database console via a special route, <http://localhost:8080/h2-console>
-* For more info, see [docs/h2-database.md](/docs/h2-database.md)
-
-On Heroku:
-* The SQL database is a postgres database provisioned automatically by Heroku
-* You can reset it with `heroku pg:reset --app app-name-goes-here`
-* More info and instructions for access the SQL prompt are at [docs/postgres-database.md](/docs/postgres-database.md)
